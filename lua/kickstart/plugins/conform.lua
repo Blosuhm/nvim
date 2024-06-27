@@ -13,6 +13,8 @@ return {
         -- python = { "isort", "black" },
         sh = { { 'beautysh', 'shfmt' } },
         zsh = { { 'beautysh', 'shfmt' } },
+        c = { { 'clang-format' } },
+        cpp = { { 'clang-format' } },
         --
         -- You can use a sub-list to tell conform to run *until* a formatter
         -- is found.

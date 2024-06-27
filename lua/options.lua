@@ -30,6 +30,9 @@ vim.opt.undofile = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
+-- Color 80th column
+vim.opt.colorcolumn = '80'
+
 -- Keep signcolumn on by default
 vim.opt.signcolumn = 'yes'
 
@@ -55,5 +58,16 @@ vim.opt.cursorline = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
+
+-- Spelling
+-- vim.opt.spell = true
+vim.opt.spelllang = 'en_us,pt_pt'
+
+-- set tabwidth to 2
+vim.opt.tabstop = 2
+
+vim.filetype.add {
+  extension = { g4 = 'antlr' },
+}
 
 -- vim: ts=2 sts=2 sw=2 et
