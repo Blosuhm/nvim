@@ -61,7 +61,7 @@ vim.opt.scrolloff = 10
 
 -- Spelling
 -- vim.opt.spell = true
-vim.opt.spelllang = 'en_us,pt_pt'
+vim.opt.spelllang = 'en_us'
 
 -- set tabwidth to 2
 vim.opt.tabstop = 2

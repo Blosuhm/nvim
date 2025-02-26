@@ -132,6 +132,21 @@ return {
             --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
             local path = require('lspconfig/util').path
 
+            local function strIsEmpty(s)
+                return s == nil or s == ''
+            end
+
+            local function findExecutable(execs)
+                for _, exec in ipairs(execs) do
+                    local cmd = vim.fn.exepath(exec)
+                    if not strIsEmpty(cmd) then
+                        return cmd
+                    end
+                end
+
+                return execs[0]
+            end
+
             local function get_python_path(workspace)
                 -- Use activated virtualenv.
                 if vim.env.VIRTUAL_ENV then
@@ -157,7 +172,7 @@ return {
                 end
 
                 -- Fallback to system Python.
-                return utils.findExecutable({ 'python3', 'python' })
+                return findExecutable({ 'python3', 'python' })
             end
 
             local servers = {
@@ -170,7 +185,7 @@ return {
                         }
                     }
                 },
-                -- clangd = {},
+                clangd = {},
                 -- -- gopls = {},
                 pyright = {
                     before_init = function(_, config)
@@ -187,18 +202,20 @@ return {
                     }
 
                 },
-                -- rust_analyzer = {},
+                rust_analyzer = {},
                 -- -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
                 -- --
                 -- -- Some languages (like typescript) have entire language plugins that can be useful:
                 -- --    https://github.com/pmizio/typescript-tools.nvim
                 -- --
                 -- -- But for many setups, the LSP (`tsserver`) will work just fine
-                -- tsserver = {},
-                -- tailwindcss = {},
+                ts_ls = {},
+                svelte = {},
+                tailwindcss = {},
                 -- eslint = {},
                 -- --
                 --
+                texlab = {},
                 lua_ls = {
                     -- cmd = {...},
                     -- filetypes { ...},

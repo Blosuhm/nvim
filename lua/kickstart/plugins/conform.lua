@@ -11,7 +11,7 @@ return {
         -- lua = { 'stylua' },
         -- Conform can also run multiple formatters sequentially
         -- zig = { 'zigfmt' },
-        -- python = { "isort", "black" },
+        python = { "isort", "black" },
         -- sh = { { 'beautysh', 'shfmt' } },
         -- zsh = { { 'beautysh', 'shfmt' } },
         -- c = { { 'clang-format' } },
@@ -19,7 +19,14 @@ return {
         --
         -- You can use a sub-list to tell conform to run *until* a formatter
         -- is found.
-        -- javascript = { { 'prettierd', 'prettier' } },
+        javascript = { 'prettierd' },
+        typescript = { "prettierd" },
+        javascriptreact = { "prettierd" },
+        typescriptreact = { "prettierd" },
+        markdown = { "prettierd" },
+        html = { "prettierd" },
+        css = { "prettierd" },
+        json = { "prettierd" },
       },
     },
   },
