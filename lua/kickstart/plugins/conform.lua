@@ -27,6 +27,7 @@ return {
         html = { "prettierd" },
         css = { "prettierd" },
         json = { "prettierd" },
+        tex = { "latexindent" }
       },
     },
   },
