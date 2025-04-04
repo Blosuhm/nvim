@@ -19,6 +19,7 @@ return {
         --
         -- You can use a sub-list to tell conform to run *until* a formatter
         -- is found.
+        nginx = { "nginxfmt" },
         javascript = { 'prettierd' },
         typescript = { "prettierd" },
         javascriptreact = { "prettierd" },
@@ -26,7 +27,9 @@ return {
         markdown = { "prettierd" },
         html = { "prettierd" },
         css = { "prettierd" },
+        jsonc = { "prettierd" },
         json = { "prettierd" },
+        yaml = { "prettierd" },
         tex = { "latexindent" }
       },
     },

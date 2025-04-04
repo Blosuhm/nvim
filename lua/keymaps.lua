@@ -1,5 +1,4 @@
--- [[ Basic Keymaps ]]
---  See `:help vim.keymap.set()`
+-- [[ Basic Keymaps ]] See `:help vim.keymap.set()`
 
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
@@ -47,5 +46,9 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.highlight.on_yank()
   end,
 })
+
+
+-- Exit insert with jk or jj
+vim.keymap.set("i", "jj", "<ESC>", { silent = true })
 
 -- vim: ts=2 sts=2 sw=2 et
