@@ -186,22 +186,41 @@ return {
                     }
                 },
                 clangd = {},
-                -- -- gopls = {},
-                pyright = {
-                    before_init = function(_, config)
-                        config.settings.python.pythonPath = get_python_path(config.root_dir)
-                    end,
+                -- yamlls = {},
+                helm_ls = {
                     settings = {
-                        python = {
-                            analysis = {
-                                autoImportCompletions = true,
-                                useLibraryCodeForTypes = true,
-                                disableOrganizeImports = false,
-                            },
-                        },
+                        ['helm-ls'] = {
+                            yamlls = {
+                                path = "yaml-language-server",
+                            }
+                        }
                     }
-
                 },
+                -- -- gopls = {},
+                ty = {},
+                ruff = {
+                    on_attach = function(client, bufnr)
+                        -- Important: ty and ruff both provide hover.
+                        -- Usually, you want ty to win for type info.
+                        client.server_capabilities.hoverProvider = false
+                    end,
+                },
+
+                -- pyright = {
+                --     before_init = function(_, config)
+                --         config.settings.python.pythonPath = get_python_path(config.root_dir)
+                --     end,
+                --     settings = {
+                --         python = {
+                --             analysis = {
+                --                 autoImportCompletions = true,
+                --                 useLibraryCodeForTypes = true,
+                --                 disableOrganizeImports = false,
+                --             },
+                --         },
+                --     }
+                --
+                -- },
                 rust_analyzer = {},
                 -- -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
                 -- --
@@ -209,12 +228,15 @@ return {
                 -- --    https://github.com/pmizio/typescript-tools.nvim
                 -- --
                 -- -- But for many setups, the LSP (`tsserver`) will work just fine
+                gleam = {},
                 ts_ls = {},
                 svelte = {},
                 tailwindcss = {},
+                astro = {},
+                zls = {},
                 -- eslint = {},
                 -- --
-                --
+                gopls = {},
                 texlab = {},
                 lua_ls = {
                     -- cmd = {...},
@@ -253,6 +275,7 @@ return {
                 -- certain features of an LSP (for example, turning off formatting for tsserver)
                 server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
                 vim.lsp.config(server_name, server)
+                vim.lsp.enable(server_name)
             end
         end,
     },

@@ -52,4 +52,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 vim.keymap.set("i", "jj", "<ESC>", { silent = true })
 vim.keymap.set("i", "JJ", "<ESC>", { silent = true })
 
+vim.keymap.set("n", "<leader>x", "<cmd>CommandExecute<CR>", { desc = "Open command prompt" })
+
 -- vim: ts=2 sts=2 sw=2 et

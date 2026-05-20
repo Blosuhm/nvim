@@ -11,11 +11,11 @@ return {
         -- lua = { 'stylua' },
         -- Conform can also run multiple formatters sequentially
         -- zig = { 'zigfmt' },
-        python = { "isort", "black" },
+        python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
         -- sh = { { 'beautysh', 'shfmt' } },
         -- zsh = { { 'beautysh', 'shfmt' } },
-        -- c = { { 'clang-format' } },
-        -- cpp = { { 'clang-format' } },
+        c = { 'clang-format' },
+        cpp = { 'clang-format' },
         --
         -- You can use a sub-list to tell conform to run *until* a formatter
         -- is found.
@@ -30,7 +30,10 @@ return {
         jsonc = { "prettierd" },
         json = { "prettierd" },
         yaml = { "prettierd" },
-        tex = { "latexindent" }
+        tex = { "latexindent" },
+        toml = { "taplo" },
+        go = { "gofmt" },
+        gleam = { "gleam" }
       },
     },
   },
